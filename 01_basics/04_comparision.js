@@ -18,9 +18,9 @@ For <, >, <=, >= → null becomes 0
 For == → null only equals undefined
 */
 
-console.log(undefined == 0);// false
-console.log(undefined > 0);// false
-console.log(undefined < 0);// false
+console.log(undefined == 0);// (NaN==0) false
+console.log(undefined > 0);// (NaN>0) false
+console.log(undefined < 0);// (NaN<0) false
 
 /*
 undefined is only equal to null, not equal to any number.
