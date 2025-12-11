@@ -37,3 +37,5 @@ All comparisons with NaN return false.
 // === 
 
 console.log("2" === 2); //false
+console.log("2" == 2); //true (Type Coercion will happen
+
