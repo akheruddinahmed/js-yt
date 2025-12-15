@@ -50,15 +50,20 @@ const user = {
     prices: 199
 }
 
+//Passing object to function
+
 function handleObject(anyobject){
     console.log(`Username is ${anyobject.username} and price is ${anyobject.price}`);
 }
+//Passing object to function without storing in variable
 
 // handleObject(user)
 handleObject({
     username: "admin",
     price: 399
 })
+
+//Passing array to function
 
 const myNewArray = [200, 400, 100, 600]
 
@@ -67,4 +72,5 @@ function returnSecondValue(getArray){
 }
 
 // console.log(returnSecondValue(myNewArray));
+//Directly passing array without storing in variable
 console.log(returnSecondValue([200, 400, 500, 1000]));
