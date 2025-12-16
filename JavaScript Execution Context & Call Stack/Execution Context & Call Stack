@@ -1,0 +1,235 @@
+
+# 📌 JavaScript Execution Context & Call Stack (Deep Notes)
+
+These notes explain **how JavaScript code is executed internally**, including:
+
+* Global Execution Context
+* Memory Creation Phase (Hoisting)
+* Execution Phase
+* Function Execution Context
+* Call Stack (LIFO)
+* Variable Environment & Execution Thread
+
+> 🧠 **Goal:** Understand *what happens behind the scenes* when JavaScript runs your code.
+
+---
+
+## 📷 Visual Reference (Diagrams)
+
+> These diagrams explain the execution flow visually.
+
+### 1️⃣ Call Stack (LIFO)
+
+![Call Stack](./5%20CallStack.png)
+
+---
+
+### 2️⃣ Memory Phase & Execution Context Flow
+
+![Execution Context Flow](./4.png)
+
+---
+
+### 3️⃣ Function Execution Context (Creation & Deletion)
+
+![Function Execution](./3.png)
+
+---
+
+### 4️⃣ Global Execution Phases
+
+![Global Execution](./2.png)
+
+---
+
+### 5️⃣ JavaScript Execution Context Types
+
+![JS Execution Context](./1.png)
+
+---
+
+## 🧠 What is Execution Context?
+
+An **Execution Context (EC)** is the environment in which JavaScript code is evaluated and executed.
+
+Every Execution Context has **3 components**:
+
+1. **Memory / Variable Environment**
+2. **Execution Thread**
+3. **`this` keyword**
+
+---
+
+## 🔹 Types of Execution Context
+
+| Type                                 | Description                       |
+| ------------------------------------ | --------------------------------- |
+| **Global Execution Context (GEC)**   | Created first, only once          |
+| **Function Execution Context (FEC)** | Created for each function call    |
+| **Eval Execution Context**           | Created by `eval()` (rarely used) |
+
+---
+
+## 🔹 Global Execution Context (GEC)
+
+When JavaScript starts executing:
+
+1. **Global Execution Context is created**
+2. `this` → refers to **`window` (browser)** or **`global` (Node.js)**
+3. Code runs in **two phases**
+
+---
+
+## 🔁 Phase 1: Memory Creation Phase (Hoisting)
+
+* Variables declared with `let` / `var` → `undefined`
+* Functions → stored with full definition
+
+### Example:
+
+```js
+let val1 = 10
+let val2 = 5
+
+function addNum(num1, num2) {
+  let total = num1 + num2
+  return total
+}
+
+let result1 = addNum(val1, val2)
+let result2 = addNum(10, 2)
+```
+
+### Memory Phase:
+
+```txt
+val1     → undefined
+val2     → undefined
+addNum  → function definition
+result1 → undefined
+result2 → undefined
+```
+
+---
+
+## ⚙️ Phase 2: Execution Phase
+
+Now JavaScript executes line by line:
+
+```txt
+val1 = 10
+val2 = 5
+```
+
+---
+
+## 🔁 Function Execution Context (FEC)
+
+When `addNum()` is called:
+
+1. A **new Function Execution Context** is created
+2. It has its own:
+
+   * Memory Phase
+   * Execution Phase
+3. After execution → context is **deleted**
+
+### Function Memory Phase:
+
+```txt
+num1 → undefined
+num2 → undefined
+total → undefined
+```
+
+### Function Execution Phase:
+
+```txt
+num1 = 10
+num2 = 5
+total = 15
+return 15
+```
+
+---
+
+## 🧺 Call Stack (LIFO – Last In First Out)
+
+The **Call Stack** manages execution contexts.
+
+### Order:
+
+```txt
+Global Execution Context
+↓
+addNum(val1, val2)
+↓
+addNum(10, 2)
+```
+
+### After execution:
+
+```txt
+addNum() removed
+addNum() removed
+Global EC remains
+```
+
+> 📌 **Rule:**
+> Last function called → executed first → removed first
+
+---
+
+## 🧵 Execution Thread
+
+* JavaScript is **single-threaded**
+* Only **one command executes at a time**
+* Execution happens **inside an Execution Context**
+
+---
+
+## 🔑 Key Takeaways (Interview Gold)
+
+✔ JavaScript runs in **two phases**
+✔ Functions create **their own execution context**
+✔ Call Stack follows **LIFO**
+✔ Hoisting happens in **Memory Phase**
+✔ `this` is set during **Execution Context creation**
+
+---
+
+## 📝 Summary Diagram Flow
+
+```txt
+JS Code
+ ↓
+Global Execution Context
+ ↓
+Memory Phase (Hoisting)
+ ↓
+Execution Phase
+ ↓
+Function Call
+ ↓
+Function Execution Context
+ ↓
+Call Stack Pop
+```
+
+---
+
+## ⭐ Final Tip
+
+If you understand **Execution Context + Call Stack**, you will:
+
+* Debug faster
+* Master closures
+* Understand async JS better
+* Crack interviews confidently
+
+---
+
+📌 **Author:** Akher Uddin Ahmed
+📚 **Topic:** JavaScript Internals
+
+
