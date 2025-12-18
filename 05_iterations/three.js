@@ -1,4 +1,4 @@
-// for of
+// for of loop examples in arrays, strings, maps
 
 // ["", "", ""]
 // [{}, {}, {}]
@@ -34,6 +34,7 @@ const myObject = {
     game2: 'Spiderman'
 }
 
+//for...of loop does not work directly on objects
 // for (const [key, value] of myObject) {
 //     console.log(key, ':-', value);
     
