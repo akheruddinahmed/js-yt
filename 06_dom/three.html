@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chai aur code </title>
+</head>
+<body style="background-color: #212121; color: #fff;">
+    
+</body>
+<script>
+    const div = document.createElement('div')
+    console.log(div);
+    div.className = "main"
+    div.id = Math.round(Math.random() * 10 + 1)
+    div.setAttribute("title", "generated title")
+    div.style.backgroundColor = "green"
+    div.style.padding = "12px"
+    // div.innerText = "Chai aur code"
+    const addText = document.createTextNode("Chai aur code")
+    div.appendChild(addText)
+
+    document.body.appendChild(div)
+</script>
+
+<!-- Revision-ready notes:
+ - Purpose: Shows programmatic DOM creation (`createElement`, `createTextNode`, `setAttribute`, `appendChild`) and runtime ID/class assignment.
+ - Cleanup before publish: remove `console.log`, avoid inline styles, and consider deterministic IDs instead of random values for testability.
+ - Improvements: move script to an external file, add ARIA attributes if interactive, and use CSS classes for styling.
+ - Edge cases: ensure repeated runs don't create duplicate elements (check for existing `.main` or specific `id`), and validate text node encoding.
+ - Testing: verify element creation across browsers, check contrast/accessibility for dark background, and test DOM insertion timing (DOMContentLoaded vs. defer).
+ - Author/Notes: ready for refactor and extraction into `06_dom/three.js` for cleaner examples.
+-->
+</html>

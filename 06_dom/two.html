@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM | Chai aur code</title>
+</head>
+<body style="background-color: #212121; color: #fff;">
+    <div class="parent">
+        <!-- this is a comment -->
+        <div class="day">Monday</div>
+        <div class="day">Tuesday</div>
+        <div class="day">Wednesday</div>
+        <div class="day">Thursday</div>
+    </div>
+</body>
+<script>
+    const parent = document.querySelector('.parent')
+    // console.log(parent);
+    // console.log(parent.children);
+    // console.log(parent.children[1].innerHTML);
+
+    // for (let i = 0; i < parent.children.length; i++) {
+    //      console.log(parent.children[i].innerHTML);
+        
+    // }
+    parent.children[1].style.color = "orange"
+    // console.log(parent.firstElementChild);
+    // console.log(parent.lastElementChild);
+
+    const dayOne = document.querySelector('.day')
+    // console.log(dayOne);
+    // console.log(dayOne.parentElement);
+    // console.log(dayOne.nextElementSibling);
+
+    console.log("NODES: ", parent.childNodes);
+</script>
+</script>
+
+<!-- Revision-ready notes:
+ - Purpose: Demonstrates basic DOM selection and traversal (`querySelector`, `children`, `firstElementChild`, `lastElementChild`, `nextElementSibling`) and simple inline styling.
+ - Cleanup before publish: remove or gate `console.log` statements, move the `<script>` into a separate JS file, and avoid inline styles (use CSS classes instead).
+ - Improvements: add event listeners for dynamic behavior, use `const/let` consistently, and add accessibility attributes if interactive.
+ - Testing: verify element selection works with different DOM structures and in major browsers; check contrast for dark background.
+ - Author/Notes: prepared for revision by the repo maintainer; ready to extract and refactor.
+-->
+</html>
